@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/CampusClientApplication/CampusClientApplication.iml" filepath="$PROJECT_DIR$/CampusClientApplication/CampusClientApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CampusServerApplication/CampusServerApplication.iml" filepath="$PROJECT_DIR$/CampusServerApplication/CampusServerApplication.iml" />
+      <module fileurl="file://$PROJECT_DIR$/drrsWS.iml" filepath="$PROJECT_DIR$/drrsWS.iml" />
+    </modules>
+  </component>
+</project>
