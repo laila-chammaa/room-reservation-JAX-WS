@@ -1,6 +1,8 @@
-import model.CampusID;
-import model.Timeslot;
-import server.ServerInterface;
+import client.server.CampusID;
+import client.server.CampusService;
+import client.server.ServerServerInterface;
+import client.server.Timeslot;
+
 
 import java.util.ArrayList;
 import java.util.logging.Logger;
@@ -11,7 +13,7 @@ public class AdminClient {
     private String adminID;
     private CampusID campusID;
     private Logger logger;
-    private ServerInterface server;
+    private ServerServerInterface server;
 
     private static final int USER_TYPE_POS = 3;
     private static final int CAMPUS_NAME_POS = 3;
@@ -23,7 +25,19 @@ public class AdminClient {
         } catch (Exception e) {
             throw new Exception("Login Error: Invalid ID.");
         }
-        server = null; //TODO: find server
+
+        CampusService service = new CampusService();
+        switch (campusID) {
+            case WST:
+                server = service.getWSTCampusServerPort();
+                break;
+            case DVL:
+                server = service.getDVLCampusServerPort();
+                break;
+            case KKL:
+                server = service.getKKLCampusServerPort();
+                break;
+        }
 
         System.out.println("Login Succeeded. | Admin ID: " +
                 this.adminID + " | Campus ID: " + this.campusID.toString());

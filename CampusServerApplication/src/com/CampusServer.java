@@ -1,4 +1,4 @@
-package server;
+package com;
 
 import model.Booking;
 import model.CampusID;
@@ -18,7 +18,7 @@ import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 import java.util.stream.Collectors;
 
-@WebService(endpointInterface = "server.ServerInterface")
+@WebService(endpointInterface = "com.ServerInterface")
 public class CampusServer implements ServerInterface {
     private static final int MAX_NUM_BOOKING = 3;
     private static final int USER_TYPE_POS = 3;

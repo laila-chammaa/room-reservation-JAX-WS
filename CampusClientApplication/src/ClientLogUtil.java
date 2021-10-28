@@ -1,4 +1,4 @@
-import model.CampusID;
+import client.server.CampusID;
 
 import java.io.IOException;
 import java.rmi.RemoteException;

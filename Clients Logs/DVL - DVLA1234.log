@@ -1,0 +1,8 @@
+Oct 28, 2021 2:38:43 PM AdminClient createRoom
+INFO: Client Log | Request: createRoom | AdminID: DVLA1234 | Room number: 201 | Date: 01/01/2020
+Oct 28, 2021 2:38:43 PM AdminClient createRoom
+INFO: Server Log | Room record RR00002 was already created. It was updated successfully
+Oct 28, 2021 2:38:43 PM AdminClient createRoom
+INFO: Client Log | Request: createRoom | AdminID: DVLA1234 | Room number: 203 | Date: 01/01/2020
+Oct 28, 2021 2:38:43 PM AdminClient createRoom
+INFO: Server Log | Room record RR00004 was already created. It was updated successfully

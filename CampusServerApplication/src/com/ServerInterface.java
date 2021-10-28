@@ -1,4 +1,4 @@
-package server;
+package com;
 
 import model.CampusID;
 import model.Timeslot;

@@ -2,7 +2,7 @@ package udp;
 
 import model.CampusID;
 import model.Timeslot;
-import server.ServerInterface;
+import com.ServerInterface;
 
 public class CampusUDP implements CampusUDPInterface {
     private static final long serialVersionUID = 1L;

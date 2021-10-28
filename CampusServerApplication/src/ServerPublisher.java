@@ -1,5 +1,5 @@
 import model.CampusID;
-import server.CampusServer;
+import com.CampusServer;
 
 import javax.xml.ws.Endpoint;
 import java.util.HashMap;
@@ -17,13 +17,13 @@ public class ServerPublisher {
         CampusServer serverWST = new CampusServer(CampusID.WST, "localhost", 30300, serverDetails);
 
         Endpoint ep1 = Endpoint.create(serverKKL);
-        ep1.publish("http://127.0.0.1:8080/campusKKL");
+        ep1.publish("http://127.0.0.1:8080/KKL");
 
         Endpoint ep2 = Endpoint.create(serverDVL);
-        ep2.publish("http://127.0.0.1:8080/campusDVL");
+        ep2.publish("http://127.0.0.1:8080/DVL");
 
         Endpoint ep3 = Endpoint.create(serverWST);
-        ep3.publish("http://127.0.0.1:8080/campusWST");
+        ep3.publish("http://127.0.0.1:8080/WST");
 
     }
 }

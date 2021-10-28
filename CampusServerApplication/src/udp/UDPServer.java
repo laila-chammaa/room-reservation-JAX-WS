@@ -1,6 +1,6 @@
 package udp;
 
-import server.CampusServer;
+import com.CampusServer;
 
 import java.io.IOException;
 import java.net.DatagramPacket;

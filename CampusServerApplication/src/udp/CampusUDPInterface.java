@@ -1,7 +1,7 @@
 package udp;
 
 import model.CampusID;
-import server.ServerInterface;
+import com.ServerInterface;
 
 import java.io.Serializable;
 
