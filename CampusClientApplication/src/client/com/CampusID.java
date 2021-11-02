@@ -1,6 +1,5 @@
 
-package client.server;
-
+package client.com;
 
 import javax.xml.bind.annotation.XmlEnum;
 import javax.xml.bind.annotation.XmlType;

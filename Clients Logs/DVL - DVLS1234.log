@@ -1,0 +1,4 @@
+Nov 02, 2021 1:37:06 PM StudentClient bookRoom
+INFO: Client Log | Request: bookRoom | Campus: WST | StudentID: DVLS1234 | Room number: 211 | Date: 04/01/2020 | Timeslot: client.com.Timeslot@270421f5
+Nov 02, 2021 1:37:06 PM StudentClient bookRoom
+INFO: Server Log | Request: bookRoom | ERROR: WST Not Bound.

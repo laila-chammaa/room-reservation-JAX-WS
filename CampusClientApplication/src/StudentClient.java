@@ -1,7 +1,7 @@
-import client.server.CampusID;
-import client.server.CampusService;
-import client.server.ServerServerInterface;
-import client.server.Timeslot;
+import client.com.CampusID;
+import client.com.CampusServerService;
+import client.com.ServerInterface;
+import client.com.Timeslot;
 
 import java.util.logging.Logger;
 
@@ -10,7 +10,7 @@ public class StudentClient {
     private String studentID;
     private CampusID campusID;
     private Logger logger;
-    private ServerServerInterface server;
+    private ServerInterface server;
 
     static final int USER_TYPE_POS = 3;
 
@@ -23,7 +23,7 @@ public class StudentClient {
             throw new Exception("Login Error: Invalid ID.");
         }
 
-        CampusService service = new CampusService();
+        CampusServerService service = new CampusServerService();
         switch (campusID) {
             case WST:
                 server = service.getWSTCampusServerPort();

@@ -1,6 +1,5 @@
 
-package client.server;
-
+package client.com;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -18,12 +17,12 @@ import java.util.ArrayList;
  * Generated source version: 2.2
  * 
  */
-@WebService(name = "server.ServerInterface", targetNamespace = "http://server/")
+@WebService(name = "ServerInterface", targetNamespace = "http://com/")
 @SOAPBinding(style = SOAPBinding.Style.RPC)
 @XmlSeeAlso({
     ObjectFactory.class
 })
-public interface ServerServerInterface {
+public interface ServerInterface {
 
 
     /**
@@ -37,7 +36,7 @@ public interface ServerServerInterface {
      */
     @WebMethod
     @WebResult(partName = "return")
-    @Action(input = "http://server/com.ServerInterface/createRoomRequest", output = "http://server/com.ServerInterface/createRoomResponse")
+    @Action(input = "http://com/ServerInterface/createRoomRequest", output = "http://com/ServerInterface/createRoomResponse")
     public String createRoom(
         @WebParam(name = "arg0", partName = "arg0")
         String arg0,
@@ -59,7 +58,7 @@ public interface ServerServerInterface {
      */
     @WebMethod
     @WebResult(partName = "return")
-    @Action(input = "http://server/com.ServerInterface/deleteRoomRequest", output = "http://server/com.ServerInterface/deleteRoomResponse")
+    @Action(input = "http://com/ServerInterface/deleteRoomRequest", output = "http://com/ServerInterface/deleteRoomResponse")
     public String deleteRoom(
         @WebParam(name = "arg0", partName = "arg0")
         String arg0,
@@ -82,7 +81,7 @@ public interface ServerServerInterface {
      */
     @WebMethod
     @WebResult(partName = "return")
-    @Action(input = "http://server/com.ServerInterface/bookRoomRequest", output = "http://server/com.ServerInterface/bookRoomResponse")
+    @Action(input = "http://com/ServerInterface/bookRoomRequest", output = "http://com/ServerInterface/bookRoomResponse")
     public String bookRoom(
         @WebParam(name = "arg0", partName = "arg0")
         String arg0,
@@ -104,7 +103,7 @@ public interface ServerServerInterface {
      */
     @WebMethod
     @WebResult(partName = "return")
-    @Action(input = "http://server/com.ServerInterface/cancelBookingRequest", output = "http://server/com.ServerInterface/cancelBookingResponse")
+    @Action(input = "http://com/ServerInterface/cancelBookingRequest", output = "http://com/ServerInterface/cancelBookingResponse")
     public String cancelBooking(
         @WebParam(name = "arg0", partName = "arg0")
         String arg0,
@@ -123,7 +122,7 @@ public interface ServerServerInterface {
      */
     @WebMethod
     @WebResult(partName = "return")
-    @Action(input = "http://server/com.ServerInterface/changeReservationRequest", output = "http://server/com.ServerInterface/changeReservationResponse")
+    @Action(input = "http://com/ServerInterface/changeReservationRequest", output = "http://com/ServerInterface/changeReservationResponse")
     public String changeReservation(
         @WebParam(name = "arg0", partName = "arg0")
         String arg0,
@@ -144,7 +143,7 @@ public interface ServerServerInterface {
      */
     @WebMethod
     @WebResult(partName = "return")
-    @Action(input = "http://server/com.ServerInterface/getAvailableTimeSlotRequest", output = "http://server/com.ServerInterface/getAvailableTimeSlotResponse")
+    @Action(input = "http://com/ServerInterface/getAvailableTimeSlotRequest", output = "http://com/ServerInterface/getAvailableTimeSlotResponse")
     public String getAvailableTimeSlot(
         @WebParam(name = "arg0", partName = "arg0")
         String arg0);
@@ -156,7 +155,7 @@ public interface ServerServerInterface {
      */
     @WebMethod
     @WebResult(partName = "return")
-    @Action(input = "http://server/com.ServerInterface/getLocalAvailableTimeSlotRequest", output = "http://server/com.ServerInterface/getLocalAvailableTimeSlotResponse")
+    @Action(input = "http://com/ServerInterface/getLocalAvailableTimeSlotRequest", output = "http://com/ServerInterface/getLocalAvailableTimeSlotResponse")
     public int getLocalAvailableTimeSlot();
 
 }

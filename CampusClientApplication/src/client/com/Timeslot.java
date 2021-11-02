@@ -1,5 +1,5 @@
 
-package client.server;
+package client.com;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -36,12 +36,12 @@ public class Timeslot {
     protected float end;
     protected float start;
 
+    public Timeslot() {
+    }
+
     public Timeslot(float start, float end) {
         this.start = start;
         this.end = end;
-    }
-
-    public Timeslot() {
     }
 
     /**

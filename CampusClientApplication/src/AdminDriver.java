@@ -1,4 +1,4 @@
-import client.server.Timeslot;
+import client.com.Timeslot;
 
 import java.util.ArrayList;
 import java.util.Arrays;
