@@ -5,8 +5,8 @@ import java.util.Arrays;
 
 public class AdminDriver {
     public static void main(String[] args) {
-        ArrayList<Timeslot> listOfTimeSlots = new ArrayList<>(Arrays.asList(new Timeslot(19, 20), new Timeslot(12, 13),
-                new Timeslot(15, 16)));
+        Timeslot[] listOfTimeSlots = new Timeslot[]{new Timeslot(19, 20), new Timeslot(12, 13),
+                new Timeslot(15, 16)};
         Timeslot[] listOfTimeSlots2 = {new Timeslot(1, 2)};
         Timeslot[] listOfTimeSlots3 = {new Timeslot(15, 16)};
 

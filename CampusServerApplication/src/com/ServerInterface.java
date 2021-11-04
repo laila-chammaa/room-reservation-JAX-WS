@@ -11,8 +11,8 @@ import java.util.ArrayList;
 @SOAPBinding(style = SOAPBinding.Style.RPC)
 public interface ServerInterface {
     //ADMIN ONLY
-    String createRoom(String adminID, int roomNumber, String date, ArrayList<Timeslot> listOfTimeSlots);
-    String deleteRoom(String adminID, int roomNumber, String date, ArrayList<Timeslot> listOfTimeSlots);
+    String createRoom(String adminID, int roomNumber, String date, Timeslot[] listOfTimeSlots);
+    String deleteRoom(String adminID, int roomNumber, String date, Timeslot[] listOfTimeSlots);
 
     //STUDENT ONLY
     String bookRoom(String studentID, CampusID campusID, int roomNumber, String date, Timeslot timeSlot);

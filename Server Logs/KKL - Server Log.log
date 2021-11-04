@@ -1,14 +1,6 @@
-Nov 02, 2021 1:22:38 PM com.CampusServer <init>
+Nov 04, 2021 7:13:59 PM com.CampusServer <init>
 INFO: Initializing Server ...
-Nov 02, 2021 1:22:38 PM com.CampusServer <init>
+Nov 04, 2021 7:13:59 PM com.CampusServer <init>
 INFO: Server: KKL initialization success.
-Nov 02, 2021 1:22:38 PM com.CampusServer <init>
+Nov 04, 2021 7:13:59 PM com.CampusServer <init>
 INFO: Server: KKL port is : 30100
-Nov 02, 2021 1:36:22 PM com.CampusServer createRoom
-INFO: Server Log | Request: createRoom | AdminID: KKLA1234 | Room number: 201 | Date: 03/01/2020
-Nov 02, 2021 1:36:22 PM com.CampusServer createRecord
-INFO: Server Log | Room record RR00001 was created successfully
-Nov 02, 2021 1:36:40 PM com.CampusServer createRoom
-INFO: Server Log | Request: createRoom | AdminID: KKLA1234 | Room number: 201 | Date: 03/01/2020
-Nov 02, 2021 1:36:40 PM com.CampusServer updateRecord
-INFO: Server Log | Room record RR00001 was already created. It was updated successfully

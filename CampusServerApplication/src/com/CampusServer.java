@@ -9,6 +9,7 @@ import udp.UDPClient;
 import udp.UDPServer;
 
 import javax.jws.WebService;
+import javax.xml.namespace.QName;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -17,6 +18,8 @@ import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 import java.util.stream.Collectors;
+
+import static model.CampusID.DVL;
 
 @WebService(endpointInterface = "com.ServerInterface")
 public class CampusServer implements ServerInterface {
@@ -45,10 +48,10 @@ public class CampusServer implements ServerInterface {
     HashMap<String, String> serversList;
 
     public CampusServer() {
-        this.campusID = campusID;
+        this.campusID = DVL; //default value
         this.UDPHost = "localhost";
         this.UDPPort = 8080;
-        this.serversList = serversList;
+        this.serversList = serversList; //TODO: default value?
 
         this.UDPServer = new UDPServer(UDPHost, UDPPort, this);
 
@@ -119,7 +122,7 @@ public class CampusServer implements ServerInterface {
     }
 
     @Override
-    public String createRoom(String adminID, int roomNumber, String date, ArrayList<Timeslot> listOfTimeSlots) {
+    public String createRoom(String adminID, int roomNumber, String date, Timeslot[] listOfTimeSlots) {
         String resultLog;
         resultLog = validateAdmin(adminID);
         if (resultLog != null) {
@@ -145,7 +148,7 @@ public class CampusServer implements ServerInterface {
         return resultLog;
     }
 
-    private String createRecord(int roomNumber, String date, ArrayList<Timeslot> listOfTimeSlots) {
+    private String createRecord(int roomNumber, String date, Timeslot[] listOfTimeSlots) {
         String resultLog;
         String recordID = "RR" + String.format("%05d", recordIdCount);
         incrementRecordID();
@@ -164,7 +167,7 @@ public class CampusServer implements ServerInterface {
         return resultLog;
     }
 
-    private String updateRecord(String recordID, ArrayList<Timeslot> listOfTimeSlots) {
+    private String updateRecord(String recordID, Timeslot[] listOfTimeSlots) {
         String resultLog;
         List<Booking> previousBookings = bookingRecords.get(recordID);
         List<Booking> newBookings = new ArrayList<>(previousBookings);
@@ -179,7 +182,7 @@ public class CampusServer implements ServerInterface {
     }
 
     @Override
-    public String deleteRoom(String adminID, int roomNumber, String date, ArrayList<Timeslot> listOfTimeSlots) {
+    public String deleteRoom(String adminID, int roomNumber, String date, Timeslot[] listOfTimeSlots) {
 
         String resultLog;
         resultLog = validateAdmin(adminID);
@@ -227,7 +230,7 @@ public class CampusServer implements ServerInterface {
         if (resultLog != null) {
             return resultLog;
         }
-        resultLog = validateDateTimeSlot(date, new ArrayList<>(Collections.singletonList(timeslot)));
+        resultLog = validateDateTimeSlot(date, new Timeslot[]{timeslot});
         if (resultLog != null) {
             return resultLog;
         }
@@ -238,12 +241,14 @@ public class CampusServer implements ServerInterface {
                 this.logger.info(String.format("Server Log | Forwarding Request to %s Server: bookRoom | StudentID: %s " +
                                 "| Room number: %d | Date: %s | Timeslot: %s", campusID.toString(), studentID, roomNumber,
                         date, timeslot.toString()));
-
-                ServerInterface otherServer = null; //TODO: get other server
+                CampusServerService service = new CampusServerService();
+                QName qName = new QName("http://com/", campusID.name() + "CampusServerPort");
+                ServerInterface otherServer = service.getPort(qName, ServerInterface.class);
                 return otherServer.bookRoom(studentID, campusID, roomNumber, date, timeslot);
             } catch (Exception e) {
                 resultLog = "Server Log | Request: bookRoom | ERROR: " + campusID.toString() + " Not Bound.";
                 this.logger.severe(resultLog);
+                e.printStackTrace();
                 return resultLog;
             }
         }
@@ -316,7 +321,7 @@ public class CampusServer implements ServerInterface {
     @Override
     public synchronized String changeReservation(String studentID, String bookingId, CampusID newCampusName, int newRoomNo,
                                                  Timeslot newTimeSlot) {
-        String resultLog = validateDateTimeSlot(null, new ArrayList<>(Collections.singletonList(newTimeSlot)));
+        String resultLog = validateDateTimeSlot(null, new Timeslot[]{newTimeSlot});
         if (resultLog != null) {
             return resultLog;
         }
@@ -434,7 +439,7 @@ public class CampusServer implements ServerInterface {
         //Getting the original booking info from bookingID:
         this.logger.warning("Server Log | ERROR Request: changeReservation | Changing booking wasn't successful, rebooking original room. ");
         Map.Entry<String, Integer> record = roomRecords.get(booking.getRecordID());
-        int roomNum = (int) (int) record.getValue();
+        int roomNum = record.getValue();
         bookRoom(studentID, CampusID.valueOf(this.campusID.name()),
                 roomNum, date, booking.getTimeslot());
     }
@@ -553,7 +558,7 @@ public class CampusServer implements ServerInterface {
         return null;
     }
 
-    private String validateDateTimeSlot(String date, ArrayList<Timeslot> listOfTimeSlots) {
+    private String validateDateTimeSlot(String date, Timeslot[] listOfTimeSlots) {
         if (listOfTimeSlots != null) {
             for (Timeslot slot : listOfTimeSlots) {
                 if (slot.getStart() < 0 || slot.getStart() >= 24 || slot.getEnd() < 0 ||

@@ -1,28 +1,6 @@
-Nov 02, 2021 1:22:38 PM com.CampusServer <init>
+Nov 04, 2021 7:13:59 PM com.CampusServer <init>
 INFO: Initializing Server ...
-Nov 02, 2021 1:22:38 PM com.CampusServer <init>
+Nov 04, 2021 7:13:59 PM com.CampusServer <init>
 INFO: Server: DVL initialization success.
-Nov 02, 2021 1:22:38 PM com.CampusServer <init>
+Nov 04, 2021 7:13:59 PM com.CampusServer <init>
 INFO: Server: DVL port is : 30200
-Nov 02, 2021 1:36:22 PM com.CampusServer createRoom
-INFO: Server Log | Request: createRoom | AdminID: DVLA1234 | Room number: 201 | Date: 01/01/2020
-Nov 02, 2021 1:36:22 PM com.CampusServer createRecord
-INFO: Server Log | Room record RR00002 was created successfully
-Nov 02, 2021 1:36:22 PM com.CampusServer createRoom
-INFO: Server Log | Request: createRoom | AdminID: DVLA1234 | Room number: 203 | Date: 01/01/2020
-Nov 02, 2021 1:36:22 PM com.CampusServer createRecord
-INFO: Server Log | Room record RR00004 was created successfully
-Nov 02, 2021 1:36:28 PM com.CampusServer getAvailableTimeSlot
-INFO: Server Log | Request: getAvailableTimeSlot | Date: 03/01/2020
-Nov 02, 2021 1:36:40 PM com.CampusServer createRoom
-INFO: Server Log | Request: createRoom | AdminID: DVLA1234 | Room number: 201 | Date: 01/01/2020
-Nov 02, 2021 1:36:40 PM com.CampusServer updateRecord
-INFO: Server Log | Room record RR00002 was already created. It was updated successfully
-Nov 02, 2021 1:36:40 PM com.CampusServer createRoom
-INFO: Server Log | Request: createRoom | AdminID: DVLA1234 | Room number: 203 | Date: 01/01/2020
-Nov 02, 2021 1:36:40 PM com.CampusServer updateRecord
-INFO: Server Log | Room record RR00004 was already created. It was updated successfully
-Nov 02, 2021 1:37:06 PM com.CampusServer bookRoom
-INFO: Server Log | Forwarding Request to WST Server: bookRoom | StudentID: DVLS1234 | Room number: 211 | Date: 04/01/2020 | Timeslot: Timeslot{start=19.0, end=20.0}
-Nov 02, 2021 1:37:06 PM com.CampusServer bookRoom
-SEVERE: Server Log | Request: bookRoom | ERROR: WST Not Bound.

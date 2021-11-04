@@ -1,6 +1,6 @@
 import client.com.Timeslot;
 
-import static client.com.CampusID.WST;
+import static client.com.CampusID.*;
 
 public class StudentDriver {
 
@@ -31,8 +31,8 @@ public class StudentDriver {
             //testing max booking for student
 //            testClient1.bookRoom(KKL, 201, "03/01/2020", timeSlot);
             testClient1.bookRoom(WST, 211, "04/01/2020", timeSlot);
-//            String bookingID = testClient1.bookRoom(DVL, 203, "01/01/2020", timeSlot);
-//            testClient1.changeReservation(bookingID, KKL, (short) 201, timeSlot);
+            String bookingID = testClient1.bookRoom(DVL, 203, "01/01/2020", timeSlot);
+            testClient1.changeReservation(bookingID, KKL, (short) 201, timeSlot);
 
 //            testClient1.bookRoom(DVL, 203, "01/01/2020", timeSlot3);
 //

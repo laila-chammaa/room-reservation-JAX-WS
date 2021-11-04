@@ -1,4 +1,4 @@
-Nov 02, 2021 1:36:40 PM AdminClient createRoom
+Nov 04, 2021 7:08:22 PM AdminClient createRoom
 INFO: Client Log | Request: createRoom | AdminID: WSTA1234 | Room number: 211 | Date: 04/01/2020
-Nov 02, 2021 1:36:40 PM AdminClient createRoom
+Nov 04, 2021 7:08:45 PM AdminClient createRoom
 INFO: Server Log | Room record RR00003 was already created. It was updated successfully

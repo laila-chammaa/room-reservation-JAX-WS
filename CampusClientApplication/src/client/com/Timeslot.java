@@ -44,6 +44,13 @@ public class Timeslot {
         this.end = end;
     }
 
+    public String toString() {
+        return "Timeslot{" +
+                "start=" + start +
+                ", end=" + end +
+                '}';
+    }
+
     /**
      * Gets the value of the end property.
      * 

@@ -8,27 +8,9 @@
              targetNamespace="http://com/" name="CampusServerService">
     <types>
         <xsd:schema>
-            <xsd:import namespace="http://com/" schemaLocation="http://127.0.0.1:8080/KKL?xsd=1"/>
+            <xsd:import namespace="http://com/" schemaLocation="http://localhost:8080/KKL?xsd=1"/>
         </xsd:schema>
     </types>
-    <message name="createRoom">
-        <part name="arg0" type="xsd:string"/>
-        <part name="arg1" type="xsd:int"/>
-        <part name="arg2" type="xsd:string"/>
-        <part name="arg3" type="tns:arrayList"/>
-    </message>
-    <message name="createRoomResponse">
-        <part name="return" type="xsd:string"/>
-    </message>
-    <message name="deleteRoom">
-        <part name="arg0" type="xsd:string"/>
-        <part name="arg1" type="xsd:int"/>
-        <part name="arg2" type="xsd:string"/>
-        <part name="arg3" type="tns:arrayList"/>
-    </message>
-    <message name="deleteRoomResponse">
-        <part name="return" type="xsd:string"/>
-    </message>
     <message name="bookRoom">
         <part name="arg0" type="xsd:string"/>
         <part name="arg1" type="tns:campusID"/>
@@ -37,6 +19,24 @@
         <part name="arg4" type="tns:timeslot"/>
     </message>
     <message name="bookRoomResponse">
+        <part name="return" type="xsd:string"/>
+    </message>
+    <message name="createRoom">
+        <part name="arg0" type="xsd:string"/>
+        <part name="arg1" type="xsd:int"/>
+        <part name="arg2" type="xsd:string"/>
+        <part name="arg3" type="tns:timeslotArray"/>
+    </message>
+    <message name="createRoomResponse">
+        <part name="return" type="xsd:string"/>
+    </message>
+    <message name="deleteRoom">
+        <part name="arg0" type="xsd:string"/>
+        <part name="arg1" type="xsd:int"/>
+        <part name="arg2" type="xsd:string"/>
+        <part name="arg3" type="tns:timeslotArray"/>
+    </message>
+    <message name="deleteRoomResponse">
         <part name="return" type="xsd:string"/>
     </message>
     <message name="cancelBooking">
@@ -67,6 +67,10 @@
         <part name="return" type="xsd:int"/>
     </message>
     <portType name="ServerInterface">
+        <operation name="bookRoom" parameterOrder="arg0 arg1 arg2 arg3 arg4">
+            <input wsam:Action="http://com/ServerInterface/bookRoomRequest" message="tns:bookRoom"/>
+            <output wsam:Action="http://com/ServerInterface/bookRoomResponse" message="tns:bookRoomResponse"/>
+        </operation>
         <operation name="createRoom" parameterOrder="arg0 arg1 arg2 arg3">
             <input wsam:Action="http://com/ServerInterface/createRoomRequest" message="tns:createRoom"/>
             <output wsam:Action="http://com/ServerInterface/createRoomResponse" message="tns:createRoomResponse"/>
@@ -74,10 +78,6 @@
         <operation name="deleteRoom" parameterOrder="arg0 arg1 arg2 arg3">
             <input wsam:Action="http://com/ServerInterface/deleteRoomRequest" message="tns:deleteRoom"/>
             <output wsam:Action="http://com/ServerInterface/deleteRoomResponse" message="tns:deleteRoomResponse"/>
-        </operation>
-        <operation name="bookRoom" parameterOrder="arg0 arg1 arg2 arg3 arg4">
-            <input wsam:Action="http://com/ServerInterface/bookRoomRequest" message="tns:bookRoom"/>
-            <output wsam:Action="http://com/ServerInterface/bookRoomResponse" message="tns:bookRoomResponse"/>
         </operation>
         <operation name="cancelBooking" parameterOrder="arg0 arg1">
             <input wsam:Action="http://com/ServerInterface/cancelBookingRequest" message="tns:cancelBooking"/>
@@ -103,6 +103,15 @@
     </portType>
     <binding name="CampusServerPortBinding" type="tns:ServerInterface">
         <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+        <operation name="bookRoom">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal" namespace="http://com/"/>
+            </input>
+            <output>
+                <soap:body use="literal" namespace="http://com/"/>
+            </output>
+        </operation>
         <operation name="createRoom">
             <soap:operation soapAction=""/>
             <input>
@@ -113,15 +122,6 @@
             </output>
         </operation>
         <operation name="deleteRoom">
-            <soap:operation soapAction=""/>
-            <input>
-                <soap:body use="literal" namespace="http://com/"/>
-            </input>
-            <output>
-                <soap:body use="literal" namespace="http://com/"/>
-            </output>
-        </operation>
-        <operation name="bookRoom">
             <soap:operation soapAction=""/>
             <input>
                 <soap:body use="literal" namespace="http://com/"/>

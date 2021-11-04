@@ -3,6 +3,7 @@ import client.com.CampusServerService;
 import client.com.ServerInterface;
 import client.com.Timeslot;
 
+import javax.xml.ws.WebServiceRef;
 import java.util.logging.Logger;
 
 public class StudentClient {
@@ -57,7 +58,7 @@ public class StudentClient {
     }
 
     public synchronized String bookRoom(CampusID campusID, int roomNumber, String date,
-                                      Timeslot timeSlot) throws Exception {
+                                      Timeslot timeSlot) {
 
         this.logger.info(String.format("Client Log | Request: bookRoom | Campus: %s | StudentID: %s | " +
                 "Room number: %d | Date: %s | Timeslot: %s", campusID.toString(), studentID, roomNumber, date,
@@ -70,12 +71,12 @@ public class StudentClient {
         return null;
     }
 
-    public synchronized String getAvailableTimeSlot(String date) throws Exception {
+    public synchronized String getAvailableTimeSlot(String date) {
         this.logger.info(String.format("Client Log | Request: getAvailableTimeSlot | Date: %s", date));
         return server.getAvailableTimeSlot(date);
     }
 
-    public synchronized void cancelBooking(String bookingID) throws Exception {
+    public synchronized void cancelBooking(String bookingID) {
         this.logger.info(String.format("Client Log | Request: cancelBooking | StudentID: %s | " +
                 "BookingID: %s", studentID, bookingID));
 
