@@ -1,5 +1,3 @@
-Student: Laila Chamma'a
-ID: 40107470
 # Distributed Room Reservation System (DRRS) using JAX-WS
 
 In this assignment, I implemented a distributed room reservation system
