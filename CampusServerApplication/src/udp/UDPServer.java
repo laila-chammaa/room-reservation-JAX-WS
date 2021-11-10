@@ -20,30 +20,34 @@ public class UDPServer implements Runnable {
         connectionStatus = true;
     }
 
-    public void start() throws IOException {
-        DatagramSocket serverSocket = new DatagramSocket(UDPPort);
+    public void start() {
+        try {
+            DatagramSocket serverSocket = new DatagramSocket(UDPPort);
 
-        byte[] dataBuffer = new byte[1048];
+            byte[] dataBuffer = new byte[1048];
 
-        while (connectionStatus) {
-            //1. Create a datagram for incoming packets
-            DatagramPacket requestPacket = new DatagramPacket(dataBuffer, dataBuffer.length);
+            while (connectionStatus) {
+                //1. Create a datagram for incoming packets
+                DatagramPacket requestPacket = new DatagramPacket(dataBuffer, dataBuffer.length);
 
-            //2. The server will take the incoming request
-            serverSocket.receive(requestPacket);
+                //2. The server will take the incoming request
+                serverSocket.receive(requestPacket);
 
-            //3. From the packet, we take the necessary information for reply
-            InetAddress ip = requestPacket.getAddress();
-            int requestPort = requestPacket.getPort();
+                //3. From the packet, we take the necessary information for reply
+                InetAddress ip = requestPacket.getAddress();
+                int requestPort = requestPacket.getPort();
 
-            //4. Translate the byte data from the request to invoke the method
-            CampusUDPInterface requestData = MarshallService.unmarshall(requestPacket.getData());
-            requestData.execute(this.campusServer, this.campusServer.getCampusID());
+                //4. Translate the byte data from the request to invoke the method
+                CampusUDPInterface requestData = MarshallService.unmarshall(requestPacket.getData());
+                requestData.execute(this.campusServer, this.campusServer.getCampusID());
 
-            //5. Reply
-            byte[] reply = MarshallService.marshall(requestData);
-            DatagramPacket replyPacket = new DatagramPacket(reply, reply.length, ip, requestPort);
-            serverSocket.send(replyPacket);
+                //5. Reply
+                byte[] reply = MarshallService.marshall(requestData);
+                DatagramPacket replyPacket = new DatagramPacket(reply, reply.length, ip, requestPort);
+                serverSocket.send(replyPacket);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

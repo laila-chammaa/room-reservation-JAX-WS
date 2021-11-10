@@ -1,6 +1,6 @@
 Student: Laila Chamma'a
 ID: 40107470
-# Distributed Room Reservation System (DRRS) using Java CORBA
+# Distributed Room Reservation System (DRRS) using JAX-WS
 
 In this assignment, I implemented a distributed room reservation system
 (DRRS) for a university with multiple campuses: a distributed system used by administrators

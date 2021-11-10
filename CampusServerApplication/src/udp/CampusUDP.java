@@ -51,6 +51,7 @@ public class CampusUDP implements CampusUDPInterface {
                 transferStatus = resultLog.contains("success");
             } else if (this.operationType.equals("getAvailableTimeSlots")) {
                 availableTimeSlot = campusServer.getLocalAvailableTimeSlot();
+                transferStatus = true;
             }
         } catch (Exception e) {
             System.err.println(e.getMessage());

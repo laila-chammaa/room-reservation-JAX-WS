@@ -2,7 +2,6 @@
 package client.com;
 
 import javax.xml.bind.annotation.XmlRegistry;
-import java.util.ArrayList;
 
 
 /**
@@ -39,11 +38,11 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link ArrayList }
+     * Create an instance of {@link TimeslotArray }
      * 
      */
-    public ArrayList createArrayList() {
-        return new ArrayList();
+    public TimeslotArray createTimeslotArray() {
+        return new TimeslotArray();
     }
 
 }

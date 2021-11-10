@@ -82,7 +82,7 @@ public class UDPClient {
 
             //4. Wait for a response
             DatagramPacket replyPacket = new DatagramPacket(replyByte, replyByte.length);
-
+            reqSocket.receive(replyPacket);
 
             //5. Unmarshall the response
             response = MarshallService.unmarshall(replyPacket.getData());

@@ -1,14 +1,15 @@
 import client.com.Timeslot;
-
-import java.util.ArrayList;
-import java.util.Arrays;
+import client.com.TimeslotArray;
+import com.sun.tools.javac.util.List;
 
 public class AdminDriver {
     public static void main(String[] args) {
-        Timeslot[] listOfTimeSlots = new Timeslot[]{new Timeslot(19, 20), new Timeslot(12, 13),
-                new Timeslot(15, 16)};
-        Timeslot[] listOfTimeSlots2 = {new Timeslot(1, 2)};
-        Timeslot[] listOfTimeSlots3 = {new Timeslot(15, 16)};
+        TimeslotArray listOfTimeSlots = new TimeslotArray();
+        listOfTimeSlots.getItem().addAll(List.of(new Timeslot(19, 20), new Timeslot(12, 13), new Timeslot(15, 16)));
+        TimeslotArray listOfTimeSlots2 = new TimeslotArray();
+        listOfTimeSlots2.getItem().add(new Timeslot(1, 2));
+        TimeslotArray listOfTimeSlots3 = new TimeslotArray();
+        listOfTimeSlots3.getItem().add(new Timeslot(15, 16));
 
         String aid1 = "KKLA1234";
         String aid2 = "WSTA1234";
@@ -23,9 +24,9 @@ public class AdminDriver {
             //testing synchronization with multiple admins
             testClient1.createRoom(201, "03/01/2020", listOfTimeSlots);
             testClient3.createRoom(201, "01/01/2020", listOfTimeSlots);
-//            testClient1.createRoom(201, "03/01/2020", listOfTimeSlots2);
+            testClient1.createRoom(201, "03/01/2020", listOfTimeSlots2);
             testClient2.createRoom(211, "04/01/2020", listOfTimeSlots);
-//            testClient2.deleteRoom(211, "04/01/2020", listOfTimeSlots3);
+            testClient2.deleteRoom(211, "04/01/2020", listOfTimeSlots3);
             testClient3.createRoom(203, "01/01/2020", listOfTimeSlots);
 
 

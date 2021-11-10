@@ -9,9 +9,10 @@ public class MarshallService implements Serializable {
     public static byte[] marshall(CampusUDPInterface data) {
         try {
             ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            ObjectOutput output = new ObjectOutputStream(outputStream);
+            ObjectOutputStream output = new ObjectOutputStream(outputStream);
 
             output.writeObject(data);
+            output.flush();
             output.close();
 
             return outputStream.toByteArray();
@@ -30,6 +31,7 @@ public class MarshallService implements Serializable {
             ObjectInputStream input = new ObjectInputStream(inputStream);
 
             CampusUDPInterface dataUnmarshall = (CampusUDPInterface) input.readObject();
+            inputStream.close();
             input.close();
 
             return dataUnmarshall;

@@ -51,7 +51,7 @@ public class CampusServer implements ServerInterface {
         this.campusID = DVL; //default value
         this.UDPHost = "localhost";
         this.UDPPort = 8080;
-        this.serversList = serversList; //TODO: default value?
+        this.serversList = new HashMap<>(); //default value
 
         this.UDPServer = new UDPServer(UDPHost, UDPPort, this);
 
@@ -77,6 +77,7 @@ public class CampusServer implements ServerInterface {
         this.serversList = serversList;
 
         this.UDPServer = new UDPServer(UDPHost, UDPPort, this);
+        new Thread(UDPServer).start();
 
         this.roomRecords = new HashMap<>();
         this.bookingRecords = new HashMap<>();
@@ -289,7 +290,7 @@ public class CampusServer implements ServerInterface {
         return resultLog;
     }
 
-    @Override //TODO: test to make sure it works
+    @Override
     public String cancelBooking(String studentID, String bookingID) {
 
         String resultLog;

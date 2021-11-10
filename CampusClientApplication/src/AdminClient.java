@@ -1,10 +1,8 @@
 import client.com.CampusID;
 import client.com.CampusServerService;
 import client.com.ServerInterface;
-import client.com.Timeslot;
+import client.com.TimeslotArray;
 
-import javax.xml.ws.WebServiceRef;
-import java.util.ArrayList;
 import java.util.logging.Logger;
 
 
@@ -59,13 +57,13 @@ public class AdminClient {
         }
     }
 
-    public synchronized void createRoom(int roomNumber, String date, Timeslot[] listOfTimeSlots) {
+    public synchronized void createRoom(int roomNumber, String date, TimeslotArray listOfTimeSlots) {
         this.logger.info(String.format("Client Log | Request: createRoom | AdminID: %s | Room number: %d | Date: %s",
                 adminID, roomNumber, date));
         this.logger.info(server.createRoom(adminID, roomNumber, date, listOfTimeSlots));
     }
 
-    public synchronized void deleteRoom(int roomNumber, String date, Timeslot[] listOfTimeSlots) {
+    public synchronized void deleteRoom(int roomNumber, String date, TimeslotArray listOfTimeSlots) {
         this.logger.info(String.format("Client Log | Request: deleteRoom | AdminID: %s | Room number: %d | Date: %s",
                 adminID, roomNumber, date));
         this.logger.info(server.deleteRoom(adminID, roomNumber, date, listOfTimeSlots));

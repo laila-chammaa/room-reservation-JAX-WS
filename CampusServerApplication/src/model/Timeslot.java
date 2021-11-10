@@ -1,8 +1,9 @@
 package model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Timeslot {
+public class Timeslot implements Serializable {
     private float start;
     private float end;
 

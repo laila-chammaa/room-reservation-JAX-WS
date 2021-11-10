@@ -3,7 +3,6 @@ import client.com.CampusServerService;
 import client.com.ServerInterface;
 import client.com.Timeslot;
 
-import javax.xml.ws.WebServiceRef;
 import java.util.logging.Logger;
 
 public class StudentClient {
