@@ -22,7 +22,7 @@ public class AdminDriver {
             AdminClient testClient3 = new AdminClient(aid3);
 
             //testing synchronization with multiple admins
-            testClient1.createRoom(201, "03/01/2020", listOfTimeSlots);
+            testClient1.createRoom(201, "01/01/2020", listOfTimeSlots);
             testClient3.createRoom(201, "01/01/2020", listOfTimeSlots);
             testClient1.createRoom(201, "03/01/2020", listOfTimeSlots2);
             testClient2.createRoom(211, "04/01/2020", listOfTimeSlots);

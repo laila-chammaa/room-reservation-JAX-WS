@@ -376,7 +376,7 @@ public class CampusServer implements ServerInterface {
                     //3.3 Create an UDPClient and prepare the request.
                     UDPClient requestClient = new UDPClient(hostDest, portDest, campusID);
 
-                    CampusUDPInterface transferReq = new CampusUDP(studentID, bookingId, campusID, newRoomNo, newTimeSlot);
+                    CampusUDPInterface transferReq = new CampusUDP(studentID, newCampusID, newRoomNo, newTimeSlot, date);
                     requestClient.send(transferReq);
 
                     //3.4 Receive the response.
